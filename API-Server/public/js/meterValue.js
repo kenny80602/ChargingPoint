@@ -82,7 +82,7 @@ let triggerNum = 0;
 
 setInterval(() => {
   axios
-    .get(`http://localhost:3999/api/v2/meterValues/${transactionId}`)
+    .get(`http://3.112.46.100:3999/api/v2/meterValues/${transactionId}`)
     .then((res) => {
       let localInfo = res.data.result;
       console.log(JSON.stringify(localInfo));
@@ -97,7 +97,7 @@ setInterval(() => {
 document.getElementById("stopCharging").addEventListener("click", function (e) {
   e.preventDefault();
 
-  axios.post(`http://localhost:3999/api/v2/site/remoteStopTransaction`, {
+  axios.post(`http://3.112.46.100:3999/api/v2/site/remoteStopTransaction`, {
     connectorId: connectorStatusId,
     poleId: poleId,
     transactionId: transactionId,
@@ -105,5 +105,5 @@ document.getElementById("stopCharging").addEventListener("click", function (e) {
 
   alert("結束充電充電");
 
-  document.location.replace("http://localhost:3999/web/finishCharging");
+  document.location.replace("http://3.112.46.100:3999/web/finishCharging");
 });

@@ -34,7 +34,9 @@ app.use(
 // central system server init
 var server = http.createServer(app)
 const centralSystem = CentralSystemfrom.createServer(server)
-
+app.get("/", (req, res) => {
+    res.end()
+})
 //apis init
 app.use('/api/v2/', router)
 app.use(errorHandler)

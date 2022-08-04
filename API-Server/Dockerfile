@@ -12,4 +12,4 @@ COPY . /usr/src/app
 
 EXPOSE 3999
 
-CMD ["node", "app.js" ]
+CMD ["npm", "run", "start"]

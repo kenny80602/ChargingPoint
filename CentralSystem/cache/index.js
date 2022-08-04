@@ -1,18 +1,14 @@
-import handyRedis from "handy-redis";
-const env = process.env.NODE_ENV
-const host = env === 'production' ? 'centralsystem-redis.gxsri4.ng.0001.apne1.cache.amazonaws.com' : 'localhost'
-const client = handyRedis.createNodeRedisClient({
-    host: host,
-    port: 6379
-});
+import Redis from "ioredis";
 
-client.nodeRedis.on('connect',function(){
-    console.log('Redis Connected!');
 
-});
 
-client.nodeRedis.on('error',function(){
-    console.log('Redis Connect Failed!');
-});
+const redis = new Redis(6379, "charging-redis.gxsri4.ng.0001.apne1.cache.amazonaws.com");
 
-export default  client;
+//const result = await redis.set("mykey", "abc123"); // Returns a promise which resolves to "OK" when the command succeeds.
+
+redis.on("connect", function () {
+    console.log("Redis Connected!");
+  });
+
+
+export default redis;

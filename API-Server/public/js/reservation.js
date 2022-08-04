@@ -66,7 +66,7 @@ function getCookie(name) {
     
     //預約充電樁結果
     axios
-    .post(`http://localhost:3999/api/v2/reservation`,{
+    .post(`http://3.112.46.100:3999/api/v2/reservation`,{
         "siteId": siteId,
         "poleId" : poleId,
         "connectorId": connectorStatusId,
@@ -102,7 +102,7 @@ function getCookie(name) {
     var addedElt = document.getElementById(id);
 
     addedElt.addEventListener("click", function(){
-      document.location.replace('http://localhost:3999/web/meterValue')
+      document.location.replace('http://3.112.46.100:3999/web/meterValue')
     });
    
     }
@@ -115,7 +115,7 @@ function getCookie(name) {
             const duration =  document.getElementById("duration").value
             console.log(duration);
              axios
-             .post(`http://localhost:3999/api/v2//site/remoteStartTransaction`,{
+             .post(`/api/v2//site/remoteStartTransaction`,{
                  "poleId": poleId,
                  "connectorId" : connectorStatusId,
                  "idTag": "kenny",

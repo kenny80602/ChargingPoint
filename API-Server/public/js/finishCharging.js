@@ -76,7 +76,7 @@ function getCookie(name) {
    // 取得meterValues值
 
      axios
-        .get(`http://localhost:3999/api/v2/transactionInfo/transaction/${transactionId}`)
+        .get(`http://3.112.46.100:3999/api/v2/transactionInfo/transaction/${transactionId}`)
         .then((res) => { 
             
             let localInfo = res.data.result

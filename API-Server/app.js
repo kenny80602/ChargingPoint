@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-const port = 4999;
+const port = 3999;
 
 //跨來源資源共用（CORS）
 app.use(cors());
@@ -19,7 +19,9 @@ app.use(express.static('public'));
 
 app.use("/api/v2/", indexRouter);
 
-
+app.get("/", (req, res) => {
+  res.end()
+})
 
 app.get("/web", (req, res, next) => {
     res.sendFile(path.join(__dirname, '/views/index.html'));
@@ -45,5 +47,5 @@ app.get("/web/finishCharging", (req, res, next) => {
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
+  console.log(`http://3.112.46.100:${port}`);
 });
