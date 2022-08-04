@@ -45,11 +45,9 @@ export const getSiteLocation = async (lat, lng, radius) => {
             location: [siteList[i][1][0], siteList[i][1][1]],
           });
         });
-        if (true) {
+
             return output;
-        } else {
-            throw new ChargingCloud_Error.ChargeUnConnected();
-        }
+
         
 
 
@@ -101,11 +99,9 @@ export const getConnectorStatusServices = async(siteId) =>{
             }
         })
 
-        if (true) {
+
             return status;
-        } else {
-            throw new ChargingCloud_Error.NotFoundConnectorStatus();
-        }
+
         
     
         
@@ -151,11 +147,9 @@ export const getReservationService = async(transactionId) => {
             siteName:siteName,
             connectorPower: connectorPower
         }
-            if (true) {
+
                 return reservationInfo;
-            } else {
-                throw new ChargingCloud_Error.NotFoundReservation();
-            }
+
     }
 
 
@@ -168,11 +162,9 @@ export const getPoleConnectorStatusService = async(siteId, poleId, connectorId) 
     let {data : connectorStatus} = await DBAdapter.get(`/api/v1/site/${siteId}/pole/${poleId}`,{params : connectorParams })
     let connectorStatusInfo = connectorStatus.result.connectorStatus_1 || connectorStatus.result.connectorStatus_2
         
-        if (true) {
+
             return {connectorStatusInfo};
-        } else {
-            throw new ChargingCloud_Error.NotFoundPoleConnectorStatus();
-        }
+
 }
 
 export const transactionInfoService = async (transactionId) => {
@@ -193,11 +185,9 @@ export const transactionInfoService = async (transactionId) => {
     let {data : connectorStatus} = await DBAdapter.get(`/api/v1/transaction/${transactionId}`,{params : connectorParams })
     let connectorStatusInfo = connectorStatus.result 
 
-        if (true) {
+
             return connectorStatusInfo;
-        } else {
-            throw new ChargingCloud_Error.NotFoundTransactionInfo();
-        }
+
 }
 
 
