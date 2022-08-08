@@ -30,10 +30,10 @@ export const getSiteLocation = async (lat, lng, radius) => {
           let Unavailable = 0;
           let status = "offline";
           for (const colum in siteInfo) {
-            if (colum.includes("connectorStatus")) {
+            if (siteInfo[colum] !== null) {
               total++;
-              if (siteInfo[colum] === "Available") available++;
-              else if (siteInfo[colum] === "Unavailable") Unavailable++;
+              if (siteInfo[colum].connectorStatus === "Available") available++;
+              else if (siteInfo[colum].connectorStatus === "Unavailable") Unavailable++;
               else other++;
             }
           }
