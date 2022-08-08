@@ -37,8 +37,12 @@ export const getSiteLocation = async (lat, lng, radius) => {
               else other++;
             }
           }
-          if (available > 0) status = "available";
-          if (total === other) status = "full";
+          if (available > 0) {
+            status = "available"
+          } else {
+            status = "full"
+          }
+
           output.push({
             siteId: siteList[i][0],
             status: status,

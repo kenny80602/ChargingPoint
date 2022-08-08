@@ -13,9 +13,9 @@ export default class PretsoChargePoint {
     const connector3 = new Connector(3);
     this.instance = new ChargePoint({
       // centralSystemUrl: `ws://localhost:9220/kenny_pole`,`ws://localhost:9220/1`||
-      // centralSystemUrl: `ws://3.112.46.100:9220/1`,
-      centralSystemUrl: `ws://localhost:9220/1`,
-    //  centralSystemUrl: `ws://3.112.46.100:9220/1`,
+
+      centralSystemUrl: `ws://3.112.46.100:9220/1`,
+
       connectors: [connector1, connector2, connector3],
     });
     this.meterGen = null;
