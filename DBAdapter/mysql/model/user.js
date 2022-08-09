@@ -1,7 +1,6 @@
-// import  pkg   from 'sequelize'
+// const  pkg   = 'sequelize'
 // const { Model, DataTypes } = pkg;
-// import {sequelize} from '../connection.js'
-
+// const {sequelize} = '../connection.js'
 
 // export class User extends Model{ }
 // User.init(
@@ -35,8 +34,6 @@
 //         modelName: 'user', // We need to choose the model name // 定義ModelName
 //         tableName: "user"
 //     });
-
-
 
 // // the defined model is the class itself
 // //console.log(user === sequelize.models.User); // true

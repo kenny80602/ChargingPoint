@@ -1,4 +1,4 @@
-import * as DBAdapterError from '../utils/error/errors.js'
+const  DBAdapterError = require('../utils/error/errors.js')
 
 const devHandleErrors = (err, req, res, next) => {
     if (err instanceof DBAdapterError.DBAdapterError){
@@ -28,4 +28,4 @@ const handleErrors = (err ,req, res ,next) =>{
     }
 }
 
-export default process.env.NODE_ENV === 'production' ? handleErrors : devHandleErrors;
+module.exports =  process.env.NODE_ENV === 'production' ? handleErrors : devHandleErrors;

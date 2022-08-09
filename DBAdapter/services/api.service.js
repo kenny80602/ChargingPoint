@@ -1,12 +1,12 @@
-import * as sequelize from '../mysql/connection.js'
-// import {User as users} from '../mysql/model/user.js'
-import {Site as site} from '../mysql/model/site.js'
-import {Pole as pole} from '../mysql/model/pole.js'
-import {Transaction as transaction} from '../mysql/model/transaction.js'
-import * as DBAdapterError from '../utils/error/errors.js'
+const  sequelize = require('../mysql/connection.js')
+// const {User as users} = require('../mysql/model/user.js')
+const site = require('../mysql/model/site.js')
+const pole = require('../mysql/model/pole.js')
+const transaction = require('../mysql/model/transaction.js')
+const  DBAdapterError = require('../utils/error/errors.js')
 
 
-export const getUserInfoService = async (userId,fields) => {
+exports.getUserInfoService = async (userId,fields) => {
     
         const userInfo = await users.findOne({
             where:{ userId: userId },
@@ -19,7 +19,7 @@ export const getUserInfoService = async (userId,fields) => {
         }
 }
 
-export const getSiteInfoService = async (siteId,fields) => {
+exports.getSiteInfoService = async (siteId,fields) => {
     
         const siteInfo = await site.findOne({
             where:{ siteId: siteId },
@@ -33,7 +33,7 @@ export const getSiteInfoService = async (siteId,fields) => {
 }
 
 
-export const getPoleInfoService = async(poleId,siteId,fields) => {
+exports.getPoleInfoService = async(poleId,siteId,fields) => {
     
         const poleInfo = await pole.findOne({
             where:{siteId:siteId,
@@ -48,7 +48,7 @@ export const getPoleInfoService = async(poleId,siteId,fields) => {
         }
 }
 
-export const getTransactionInfoServices = async(transactionId,fields) => {
+exports.getTransactionInfoServices = async(transactionId,fields) => {
    
         let transactionInfo = await transaction.findAll({
             where:{transactionId:transactionId},

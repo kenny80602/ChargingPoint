@@ -87,7 +87,7 @@ function bt1(datas) {
     console.log(id);
 
     document.cookie = `siteId = ${id} ;`
-    document.location.replace('http://3.112.46.100:3999/web/poleState')
+    document.location.replace( `/web/poleState`)
   });
 
 
@@ -106,9 +106,11 @@ document.getElementById("localButton").addEventListener("click", function (e) {
   let lng = document.getElementById("lng").value;
   let radius = document.getElementById("radius").value;
 
+
+
   axios
     .get(
-      `http://3.112.46.100:3999/api/v2/chargingApp/nearStation?lat=${lat}&lng=${lng}&radius=${radius}`
+      `/api/v2/chargingApp/nearStation?lat=${lat}&lng=${lng}&radius=${radius}`
     )
     .then((res) => {
       console.log(res.data.result);

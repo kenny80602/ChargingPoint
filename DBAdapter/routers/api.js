@@ -1,5 +1,5 @@
-import express from 'express'
-import * as apiController from '../controllers/api.controller.js'
+const express = require('express')
+const  apiController = require('../controllers/api.controller.js')
 
 const router = express.Router()
 
@@ -12,4 +12,4 @@ router.get('/transaction/:transactionId',apiController.transactionInfo);
 
 
 
-export default router;
+module.exports = router;

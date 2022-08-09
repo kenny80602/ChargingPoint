@@ -1,9 +1,9 @@
-import { parse } from 'uuid';
-import * as apiService from '../services/api.service.js'
+const { parse } = require('uuid');
+const  apiService = require('../services/api.service.js')
 
 
 
-export const getUserInfo = async(req, res, next) => {
+exports.getUserInfo = async(req, res, next) => {
     let output = {status: 0, result: null,errMsgs: null}
     let {fields} = req.query;
     if (typeof fields === 'string')  fields = [fields]
@@ -16,7 +16,7 @@ export const getUserInfo = async(req, res, next) => {
     }
 }
 
-export const siteInfo = async(req, res, next) => {
+exports.siteInfo = async(req, res, next) => {
     let output = {status: 0, result: null,errMsgs: null}
     let {fields} = req.query;
     if (typeof fields === 'string')  fields = [fields]
@@ -29,7 +29,7 @@ export const siteInfo = async(req, res, next) => {
     }
 }
 
-export const poleInfo = async(req , res, next) => {
+exports.poleInfo = async(req , res, next) => {
     let output = {status: 0, result: null, errMsgs: null}
     try {
         let {fields} = req.query;
@@ -44,7 +44,7 @@ export const poleInfo = async(req , res, next) => {
 
 }
 
-export const transactionInfo = async(req, res, next) => {
+exports.transactionInfo = async(req, res, next) => {
     let output = {status: 0, result: null, errsMgs:null}
     try {
         let{fields} = req.query
@@ -56,5 +56,3 @@ export const transactionInfo = async(req, res, next) => {
         next(e)
     }
 }
-
-

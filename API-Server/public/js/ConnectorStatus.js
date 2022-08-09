@@ -103,7 +103,7 @@ function bt1(datas) {
       if(connectorstatus === "available" ){
         document.cookie = `poleId = ${poleId} ;`
         document.cookie = `connectorStatusId = ${connectorNum} ;`
-      document.location.replace("http://3.112.46.100:3999/web/reservation");
+      document.location.replace( `/web/reservation`);
 
       }
     });
@@ -113,7 +113,7 @@ function bt1(datas) {
 
 axios
   .get(
-    `http://3.112.46.100:3999/api/v2/chargingApp/siteId/${siteId}/selectorConnector`
+     `/api/v2/chargingApp/siteId/${siteId}/selectorConnector`
   )
   .then((res) => {
     let localInfo = res.data.result;

@@ -1,10 +1,10 @@
-import pkg from "sequelize";
+const pkg = require("sequelize");
 const { Model, DataTypes } = pkg;
-import { sequelize } from "../connection.js";
-import { Pole } from "./pole.js";
+const  sequelize  = require("../connection.js");
+const  Pole  = require("./pole.js");
 
-export class Transaction extends Model {}
-Transaction.init(
+class Transaction extends Model {}
+module.exports = Transaction.init(
   {
     // Model attributes are defined here
     transactionId: {
@@ -59,8 +59,8 @@ Transaction.init(
     sequelize, // We need to pass the connection instance   // 傳入Sequalize Instance，就是Connection建立連線後的Instance
     updatedAt: false,
     createdAt: false,
-    modelName: "transaction", // We need to choose the model name // 定義ModelName
-    tableName: "transaction",
+    modelName: "Transaction", // We need to choose the model name // 定義ModelName
+    tableName: "Transaction",
   }
 );
 

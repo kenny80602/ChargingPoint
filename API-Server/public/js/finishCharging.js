@@ -3,10 +3,12 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
+    const connectorStatusId = getCookie('connectorStatusId')
+    let id = getCookie('transactionId')
+    const poleId = getCookie('poleId')
+    const siteId = getCookie('siteId')
 
-    let transactionId = getCookie('transactionId')
-
-    console.log(transactionId);
+    console.log(id);
 
     //建立表格
 
@@ -61,32 +63,25 @@ function getCookie(name) {
       }
       
     
-
-
-
-
-
-
-
-
-
+      
 
 
 
    // 取得meterValues值
-
+  
      axios
-        .get(`http://3.112.46.100:3999/api/v2/transactionInfo/transaction/${transactionId}`)
+        .get(  `/api/v2/transactionInfo/transaction/${id}`)
         .then((res) => { 
             
             let localInfo = res.data.result
             console.log(res);
             console.log(JSON.stringify(localInfo));
             chargingtable(localInfo[0])
+            
         })
 
+        alert("完成充電")
 
-    alert("完成充電")
 
     //開始充電
     document.getElementById("firstPage").addEventListener('click', function(e) {

@@ -1,2 +1,2 @@
-export const  DB_Adapter_URL = "http://3.112.46.100:4499";
-export const  Central_System_URL = "http://3.112.46.100:9220";
+export const  DB_Adapter_URL = process.env.NODE_ENV === 'production' ? " https://y1o14a4723.execute-api.ap-northeast-1.amazonaws.com/staging" : 'http://localhost:4499';
+export const  Central_System_URL = process.env.NODE_ENV === 'production' ? "http://3.112.46.100:9220" : 'http://localhost:9220';
